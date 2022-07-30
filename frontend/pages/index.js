@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Product from "../components/product";
+import styled from "styled-components";
 import { useQuery } from "urql";
 import { PRODUCT_QUERY } from "../lib/query";
 
@@ -25,10 +26,17 @@ export default function Home() {
 
       <main>
         <h1>Studio Kursi</h1>
-        {products.map((product) => {
-          return <Product product={product} />;
-        })}
+        <Gallery>
+          {products.map((product) => {
+            return <Product product={product} />;
+          })}
+        </Gallery>
       </main>
     </div>
   );
 }
+
+const Gallery = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+`;
