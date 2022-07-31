@@ -2,10 +2,12 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function Product({ product }) {
-  const { Title, Image, Price } = product.attributes;
+  const { Title, Image, Price, Slug } = product.attributes;
   return (
     <ProductStyled>
-      <img src={Image.data.attributes.formats.small.url} />
+      <Link href={`/product/${Slug}`}>
+        <img src={Image.data.attributes.formats.small.url} />
+      </Link>
       <h1>{Title}</h1>
       <p>{Price}</p>
     </ProductStyled>
