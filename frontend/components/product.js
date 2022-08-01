@@ -8,8 +8,9 @@ export default function Product({ product }) {
       <Link href={`/product/${Slug}`}>
         <img src={Image.data.attributes.formats.small.url} />
       </Link>
-      <h1>{Title}</h1>
-      <p>{Price}</p>
+      <h3>{Title}</h3>
+      <p>Chair</p>
+      <p style={{ fontSize: "1.2rem", fontWeight: "700" }}>${Price}</p>
     </ProductStyled>
   );
 }
@@ -21,6 +22,12 @@ const ProductStyled = styled.div`
   flex-direction: column;
   padding: 1.5rem;
   height: 85%;
+  h3 {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
   img {
     width: 100%;
     height: 100%;

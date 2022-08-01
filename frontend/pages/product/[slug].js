@@ -1,11 +1,14 @@
+import React, { useContext } from "react";
 import { useQuery } from "urql";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-
+import ShopContext from "../../lib/context";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 export default function ProductDetails() {
+  const { qty, increaseQty, decreaseQty } = useContext(ShopContext);
+
   const { query } = useRouter();
 
   const [result] = useQuery({
@@ -23,7 +26,6 @@ export default function ProductDetails() {
   }
   const { Title, Description, Price, Slug, Image } =
     data.products.data[0].attributes;
-  console.log(Image);
 
   return (
     <StyledDetails>
@@ -34,11 +36,11 @@ export default function ProductDetails() {
         <p>{Price}</p>
         <StyledQuantity>
           <span>Quantity</span>
-          <button>
+          <button onClick={increaseQty}>
             <AiFillPlusCircle />
           </button>
-          <p>0</p>
-          <button>
+          <p>{qty}</p>
+          <button onClick={decreaseQty}>
             <AiFillMinusCircle />
           </button>
         </StyledQuantity>

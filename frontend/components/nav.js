@@ -1,12 +1,14 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { FiShoppingBag } from "react-icons/fi";
+import { useContext } from "react";
+import ShopContext from "../lib/context";
 
 export default function Nav() {
   return (
     <StyledNav>
       <Link href={"/"}>
-        <img src="/_next/static/media/KURSI_LOGO.3cbf7373.png" />
+        <img src="/_next/static/media/KURSI-transparent.ec0cc24f.png" />
       </Link>
       <NavItems>
         <div>
@@ -18,8 +20,9 @@ export default function Nav() {
 }
 
 const StyledNav = styled.div`
-  min-height: 13vh;
+  min-height: 10vh;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 
@@ -29,7 +32,7 @@ const StyledNav = styled.div`
     margin: 0rem 10%;
   }
   img {
-    width: 100px;
+    width: 120px;
     margin: 0rem 10%;
     cursor: pointer;
   }
