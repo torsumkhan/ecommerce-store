@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useQuery } from "urql";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useRouter } from "next/router";
@@ -7,7 +7,8 @@ import ShopContext from "../../lib/context";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 export default function ProductDetails() {
-  const { qty, increaseQty, decreaseQty } = useContext(ShopContext);
+  const { qty, increaseQty, decreaseQty, cartItems, addtoCart } =
+    useContext(ShopContext);
 
   const { query } = useRouter();
 
@@ -27,6 +28,10 @@ export default function ProductDetails() {
   const { Title, Description, Price, Slug, Image } =
     data.products.data[0].attributes;
 
+  const clickHandler = () => {
+    addtoCart(data.products.data[0].attributes, qty);
+  };
+
   return (
     <StyledDetails>
       <img src={Image.data.attributes.formats.medium.url} />
@@ -44,7 +49,7 @@ export default function ProductDetails() {
             <AiFillMinusCircle />
           </button>
         </StyledQuantity>
-        <StyledAddButton>Add to Cart</StyledAddButton>
+        <StyledAddButton onClick={clickHandler}>Add to Cart</StyledAddButton>
       </StyledInfo>
     </StyledDetails>
   );
@@ -88,4 +93,5 @@ const StyledQuantity = styled.div`
 const StyledAddButton = styled.button`
   width: 100%;
   font-weight: 500;
+  cursor: pointer;
 `;
