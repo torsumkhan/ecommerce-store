@@ -2,19 +2,24 @@ import { useContext } from "react";
 import ShopContext from "../lib/context";
 import styled from "styled-components";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import getStripe from "../lib/getStripe";
 
 const { motion } = require("framer-motion");
 
 export default function Cart() {
-  const {
-    onRemove,
+  const { onRemove, cartItems, setShowCart, addtoCart, totalPrice } =
+    useContext(ShopContext);
 
-    cartItems,
-    setShowCart,
-    addtoCart,
-
-    totalPrice,
-  } = useContext(ShopContext);
+  const handleCheckout = async () => {
+    const stripePromise = await getStripe();
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartItems),
+    });
+    const data = await response.json();
+    await stripePromise.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <div>
@@ -68,7 +73,7 @@ export default function Cart() {
                   <h4>Subtotal</h4>
                   <h3>${totalPrice}</h3>
                 </StyledSubTotal>
-                <button>Continue to checkout</button>
+                <button onClick={handleCheckout}>Continue to checkout</button>
               </div>
             )}
           </TotalPrice>
