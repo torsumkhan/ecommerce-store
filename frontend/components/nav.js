@@ -1,20 +1,25 @@
+import React, { useContext } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { FiShoppingBag } from "react-icons/fi";
-import { useContext } from "react";
+import Cart from "./cart";
 import ShopContext from "../lib/context";
+const { AnimatePresence } = require("framer-motion");
 
 export default function Nav() {
+  const { showCart, setShowCart, totalQty } = useContext(ShopContext);
   return (
     <StyledNav>
       <Link href={"/"}>
         <img src="/_next/static/media/KURSI-transparent.ec0cc24f.png" />
       </Link>
       <NavItems>
-        <div>
+        <div onClick={() => setShowCart(true)}>
+          {totalQty > 0 && <span>{totalQty}</span>}
           <FiShoppingBag />
         </div>
       </NavItems>
+      <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
     </StyledNav>
   );
 }
@@ -28,9 +33,9 @@ const StyledNav = styled.div`
 
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
-  div {
-    margin: 0rem 10%;
-  }
+  /* div {
+    padding-right: 10%;
+  } */
   img {
     width: 120px;
     margin: 0rem 10%;
@@ -53,5 +58,20 @@ const NavItems = styled.div`
   }
   svg {
     font-size: 1.2rem;
+  }
+  span {
+    background: red;
+    color: white;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 0.6rem;
+    right: -10%;
+    top: -80%;
+    pointer-events: none;
   }
 `;

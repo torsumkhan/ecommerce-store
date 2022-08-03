@@ -7,6 +7,8 @@ export const StateContext = ({ children }) => {
   const [qty, SetQty] = useState(1);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [totalQty, setTotalQty] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const increaseQty = () => {
     SetQty((previousQty) => previousQty + 1);
@@ -20,17 +22,39 @@ export const StateContext = ({ children }) => {
   };
 
   const addtoCart = (product, quantity) => {
-    const exist = cartItems.find((item) => item.slug === product.slug);
+    setTotalQty((prevTotalQty) => prevTotalQty + quantity);
+
+    setTotalPrice((prevTotal) => prevTotal + product.Price * quantity);
+    const exist = cartItems.find((item) => item.Slug === product.Slug);
     if (exist) {
       setCartItems(
         cartItems.map((item) =>
-          item.slug === product.slug
+          item.slug === product.Slug
             ? { ...exist, quantity: exist.quantity + quantity }
             : item
         )
       );
     } else {
       setCartItems([...cartItems, { ...product, quantity: quantity }]);
+    }
+  };
+
+  const onRemove = (product) => {
+    setTotalPrice((prevTotalQty) => prevTotalQty - product.Price);
+
+    setTotalQty((prevTotal) => prevTotal - 1);
+    //Check if product exists
+    const exist = cartItems.find((item) => item.Slug === product.Slug);
+    if (exist.quantity === 1) {
+      setCartItems(cartItems.filter((item) => item.Slug !== product.Slug));
+    } else {
+      setCartItems(
+        cartItems.map((item) =>
+          item.Slug === product.Slug
+            ? { ...exist, quantity: exist.quantity - 1 }
+            : item
+        )
+      );
     }
   };
 
@@ -44,6 +68,9 @@ export const StateContext = ({ children }) => {
         showCart,
         cartItems,
         addtoCart,
+        totalQty,
+        totalPrice,
+        onRemove,
       }}
     >
       {children}
