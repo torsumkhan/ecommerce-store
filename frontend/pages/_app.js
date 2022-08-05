@@ -5,7 +5,9 @@ import { UserProvider } from "@auth0/nextjs-auth0";
 import { StateContext } from "../lib/context";
 import { Toaster } from "react-hot-toast";
 
-const client = createClient({ url: "http://localhost:1337/graphql" });
+const client = createClient({
+  url: ProcessingInstruction.env.NEXT_PUBLIC_BACKEND_API,
+});
 
 function MyApp({ Component, pageProps }) {
   return (
