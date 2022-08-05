@@ -3,11 +3,7 @@ import formatMoney from "../lib/money";
 const stripe = require("stripe")(
   `${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`
 );
-import {
-  WithPageAuthRequired,
-  getSession,
-  withPageAuthRequired,
-} from "@auth0/nextjs-auth0";
+import { getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import styled from "styled-components";
 
 export const getServerSideProps = withPageAuthRequired({
