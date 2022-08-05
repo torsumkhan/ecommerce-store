@@ -60,3 +60,13 @@ cd front end & npm run dev
 ```
 
 ### Screenshots
+
+![Home page overview](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-homepage.gif?raw=true)
+
+![auth0 authentication](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/auth0.PNG?raw=true)
+
+![add to cart](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-addtocartbutton.gif?raw=true)
+
+![Order confirmation notification](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-order-confirm.PNG?raw=true)
+
+![User order history](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/user-orders.PNG?raw=true)
