@@ -76,4 +76,6 @@ Order confirmation notification
 User's order history
 ![User order history](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/user-orders.PNG?raw=true)
 
+---
+
 Thank you for your support 🙏
