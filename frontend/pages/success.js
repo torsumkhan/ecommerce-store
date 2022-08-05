@@ -24,7 +24,7 @@ export default function Success({ order }) {
         <h3>Your order has been placed!</h3>
         <p>
           We sent an email to <strong>{order.customer_details.email}</strong>
-          with your order confirmation and receipt. If the email hasn't arrived
+          with your order confirmation and receipt. If the email hasnt arrived
           within two minutes, please check your spam folder to see if the email
           was router there
         </p>
