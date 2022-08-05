@@ -1,7 +1,8 @@
-[Heroku](https://heroku-badge.herokuapp.com/?app=ecommerce-store)]()
 ![Vercel](https://vercelbadge.vercel.app/api/torsumkhan/ecommerce-store?style=plastic)
 
 # 🏪 Kursi - Ecommerce Store 🏪
+
+👉 [](https://onlinestore-chi.vercel.app/)
 
 A full stack ecommerce store for artisan chairs. Uses strapi for CMS and Stripe for payment solutions.
 
