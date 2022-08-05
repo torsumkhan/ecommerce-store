@@ -5,10 +5,16 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import ShopContext from "../../lib/context";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export default function ProductDetails() {
-  const { qty, increaseQty, decreaseQty, cartItems, addtoCart } =
+  const { qty, SetQty, increaseQty, decreaseQty, cartItems, addtoCart } =
     useContext(ShopContext);
+
+  useEffect(() => {
+    SetQty(1);
+  }, []);
 
   const { query } = useRouter();
 
@@ -28,7 +34,9 @@ export default function ProductDetails() {
   const { Title, Description, Price, Slug, Image } =
     data.products.data[0].attributes;
 
-  console.log(qty);
+  const notification = () => {
+    toast.success(`${Title} added to cart`);
+  };
 
   return (
     <StyledDetails>
@@ -50,6 +58,7 @@ export default function ProductDetails() {
         <StyledAddButton
           onClick={() => {
             addtoCart(data.products.data[0].attributes, qty);
+            notification();
           }}
         >
           Add to cart
