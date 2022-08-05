@@ -2,8 +2,6 @@
 
 # 🏪 Kursi - Ecommerce Store 🏪
 
-[👉 ](https://onlinestore-chi.vercel.app/)
-
 A full stack ecommerce store for artisan chairs. Uses strapi for CMS and Stripe for payment solutions.
 
 ![](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-home-addtocart.gif?raw=true)
