@@ -1,10 +1,13 @@
+[Heroku](https://heroku-badge.herokuapp.com/?app=ecommerce-store)]()
+![Vercel](https://vercelbadge.vercel.app/api/torsumkhan/ecommerce-store?style=plastic)
+
 # 🏪 Kursi - Ecommerce Store 🏪
 
 A full stack ecommerce store for artisan chairs. Uses strapi for CMS and Stripe for payment solutions.
 
 ![](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-home-addtocart.gif?raw=true)
 
-## Features
+## 🔍 Features
 
 - Strapi for CMS
 - Auth0 authentication
@@ -14,7 +17,7 @@ A full stack ecommerce store for artisan chairs. Uses strapi for CMS and Stripe 
 - Email order notification
 - User profile page with order numbers
 
-## Tech Stack
+## ⚙ Tech Stack
 
 ### Front-end
 
@@ -30,7 +33,7 @@ A full stack ecommerce store for artisan chairs. Uses strapi for CMS and Stripe 
 - Stripe
 - Heroku
 
-## Quick Start
+## 🚀 Quick Start
 
 Run locally with these steps
 
@@ -59,7 +62,7 @@ cd backend & npm run develop
 cd front end & npm run dev
 ```
 
-### Screenshots
+### 📸 Screenshots
 
 Home page overview
 ![Home page overview](https://github.com/torsumkhan/ecommerce-store/blob/master/docs/kursi-homepage.gif?raw=true)
@@ -78,4 +81,4 @@ User's order history
 
 ---
 
-Thank you for your support 🙏
+Thank you for the support 🙏
