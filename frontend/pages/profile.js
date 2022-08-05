@@ -31,7 +31,7 @@ export default function Profile({ user, orders }) {
         <div>
           {orders.map((order) => {
             return (
-              <StyledOrder>
+              <StyledOrder key={order.id}>
                 <h3>Order numbers: {order.id}</h3>
                 <p>Amount: {formatMoney(order.amount)}</p>
               </StyledOrder>
