@@ -16,14 +16,14 @@ export async function getServerSideProps(params) {
 
 export default function Success({ order }) {
   const route = useRouter();
-  console.log(order);
+
   return (
     <StyledOrderContainer>
       <StyledOrder>
         <h2>Thank you {order.customer_details.name} 🙏</h2>
         <h3>Your order has been placed!</h3>
         <p>
-          We sent an email to <strong>{order.customer_details.email}</strong>{" "}
+          We sent an email to <strong>{order.customer_details.email}</strong>
           with your order confirmation and receipt. If the email hasn't arrived
           within two minutes, please check your spam folder to see if the email
           was router there

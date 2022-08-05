@@ -30,7 +30,7 @@ export default function Home() {
       <main>
         <Gallery>
           {products.map((product) => {
-            return <Product product={product} />;
+            return <Product product={product} key={product.attributes.Slug} />;
           })}
         </Gallery>
       </main>

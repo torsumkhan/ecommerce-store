@@ -44,9 +44,8 @@ export default function Cart() {
 
           {cartItems.length >= 1 &&
             cartItems.map((item) => {
-              console.log(item);
               return (
-                <StyledCard>
+                <StyledCard key={item.Slug}>
                   <img src={item.Image.data.attributes.formats.small.url} />
                   <StyledItemInfo>
                     <h3>{item.Title}</h3>
